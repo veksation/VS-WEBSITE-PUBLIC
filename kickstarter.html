@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kickstarter — Vex &amp; Shell</title><meta name="description" content="Support Vex and Shell." /><meta name="theme-color" content="#3F3F73" />
+<link rel="icon" type="image/webp" href="assets/Sprites/websiteTabLogo.webp" />
+<link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/showcase.css" /><link rel="stylesheet" href="css/encounters.css" /><link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/refinements.css" /><link rel="stylesheet" href="css/panel-textures.css" /><link rel="stylesheet" href="css/responsive.css" /><link rel="stylesheet" href="css/construction.css" /></head><body class="detail-page" data-boil="0"><svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="marker-ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018 0.45" numOctaves="2" seed="8" result="grain" />
+        <feColorMatrix in="grain" type="matrix" values=".12 0 0 0 0  .12 0 0 0 0  .12 0 0 0 0  0 0 0 0 1" />
+        <feComposite in2="SourceAlpha" operator="in" result="strokes" />
+        <feBlend in="SourceGraphic" in2="strokes" mode="screen" result="ink" />
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2" result="edge" />
+        <feDisplacementMap in="ink" in2="edge" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-0" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-1" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-2" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+<canvas id="sketch-bg" aria-hidden="true"></canvas><div class="dither" aria-hidden="true"></div><a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" id="top"><noscript><a href="index.html">Sandy Studio · Home</a></noscript></header><main id="main-content"><section inert aria-hidden="true" class="section construction-preview" id="kickstarter" aria-labelledby="ks-title">
+      <header class="section__head">
+        <h1 id="ks-title" class="scribble-title">Back us on Kickstarter</h1>
+      </header>
+
+      <div class="cta-panel cta-panel--reverse sketch">
+        <div class="cta-panel__art cta-panel__art--sprites">
+          <img class="sprite sprite--cta" src="assets/Sprites/vexSprite.webp" alt="" width="160" height="160" loading="lazy" />
+          <img class="sprite sprite--cta" src="assets/Sprites/shellSprite.webp" alt="" width="160" height="160" loading="lazy" />
+        </div>
+        <div class="cta-panel__body">
+          <h3>Fund the adventure</h3>
+          <p>We're a small team crafting Vex &amp; Shell by hand. A Kickstarter campaign will allow us to add additional content, expand the OST, and so much more.</p>
+          <a class="btn btn--primary btn--big" data-link="kickstarter" href="kickstarter.html" target="_blank" rel="noopener">Follow the campaign</a>
+          <p class="fine-print" data-when-missing="kickstarter">Campaign launching soon — stay tuned!</p>
+        </div>
+      </div>
+    </section><section class="construction-dialogue" aria-label="Greg says: sorry, this place is under construction. come back later.">
+  <img class="construction-dialogue__portrait" src="assets/Sprites/greg_neutral.webp" alt="Greg" width="800" height="480" />
+  <p class="construction-dialogue__name">greg</p>
+  <div class="construction-dialogue__panel">
+    <img class="construction-dialogue__frame" src="assets/Sprites/techDemoDialoguePanel.png" alt="" width="291" height="83" />
+    <p class="construction-dialogue__text" aria-hidden="true">&gt; sorry, this place is under construction. come back later.</p>
+  </div>
+</section></main><footer class="site-footer"><noscript>Sandy Studio LLC</noscript></footer>
+<script src="js/config.js"></script>
+<script src="js/showcase-content.js"></script>
+<script src="js/site-chrome.js?v=contact"></script>
+<script src="js/background.js"></script>
+<script src="js/main.js?v=hatters-ring"></script>
+<script src="js/portrait-animation.js"></script>
+<script src="js/header-portraits.js"></script>
+<script src="js/construction.js?v=fast-silent"></script>
+</body></html>

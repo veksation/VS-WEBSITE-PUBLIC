@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dialogue &amp; voices — Vex &amp; Shell</title><meta name="description" content="Human voices, animated portraits, and an interactive dialogue demo." /><meta name="theme-color" content="#3F3F73" />
+<link rel="icon" type="image/webp" href="assets/Sprites/websiteTabLogo.webp" />
+<link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/showcase.css" /><link rel="stylesheet" href="css/encounters.css" /><link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/refinements.css" /><link rel="stylesheet" href="css/panel-textures.css" /><link rel="stylesheet" href="css/responsive.css" /></head><body class="detail-page" data-boil="0"><svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="marker-ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018 0.45" numOctaves="2" seed="8" result="grain" />
+        <feColorMatrix in="grain" type="matrix" values=".12 0 0 0 0  .12 0 0 0 0  .12 0 0 0 0  0 0 0 0 1" />
+        <feComposite in2="SourceAlpha" operator="in" result="strokes" />
+        <feBlend in="SourceGraphic" in2="strokes" mode="screen" result="ink" />
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2" result="edge" />
+        <feDisplacementMap in="ink" in2="edge" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-0" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-1" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-2" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+<canvas id="sketch-bg" aria-hidden="true"></canvas><div class="dither" aria-hidden="true"></div><a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" id="top"><noscript><a href="index.html">Sandy Studio · Home</a></noscript></header><main id="main-content"><section class="section" aria-labelledby="dialogue-title"><header class="section__head"><h1 class="scribble-title" id="dialogue-title">Dialogue &amp; voices</h1></header><p class="showcase-intro" id="dialogue-description"></p><div class="demo-block" id="demo">
+        <header class="section__head">
+          <h2 class="subhead">Interactive Dialogue Demo</h2>
+        </header>
+
+        <div class="demo sketch">
+          <div class="demo__screen" id="demo-screen" tabindex="0" role="group" aria-label="Dialogue demo. Press Z or click to continue.">
+            <img class="demo__portrait" id="demo-portrait" src="assets/Sprites/vex_neutral.webp" alt="" width="800" height="480" />
+
+            <div class="demo__bottom">
+              <p class="demo__name" id="demo-name">Vex</p>
+              <div class="demo__panel">
+                <img class="demo__panel-art" src="assets/Sprites/techDemoDialoguePanel.png" alt="" width="291" height="83" />
+                <p class="demo__text" id="demo-text" aria-hidden="true"></p>
+                <span class="demo__next" id="demo-next" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <div class="demo__start" id="demo-start">
+              <p>Press <kbd>Z</kbd> to start</p>
+              <p class="demo__start-sub">or click / tap here</p>
+            </div>
+          </div>
+
+          <p class="sr-only" id="demo-live" aria-live="polite"></p>
+
+          <div class="demo__controls">
+            <p class="demo__hint" id="demo-hint"><kbd>Z</kbd> continue</p>
+            <div class="demo__buttons">
+              <button class="btn btn--primary demo__z" id="demo-advance" type="button">Z</button>
+              <button class="btn btn--ghost" id="demo-sound" type="button" aria-pressed="true">Sound: On</button>
+              <button class="btn btn--ghost" id="demo-restart" type="button">Restart</button>
+            </div>
+          </div>
+        </div>
+      </div><p class="showcase-intro">Choose a portrait to see it react and hear its voice.</p><div class="portrait-roster" id="portrait-roster"></div></section></main><footer class="site-footer"><noscript>Sandy Studio LLC</noscript></footer>
+<script src="js/config.js"></script>
+<script src="js/showcase-content.js"></script>
+<script src="js/site-chrome.js?v=contact"></script>
+<script src="js/background.js"></script>
+<script src="js/main.js?v=hatters-ring"></script>
+<script src="js/portrait-animation.js"></script>
+<script src="js/header-portraits.js"></script>
+<script src="js/dialogue-demo.js"></script>
+<script src="js/portrait-showcase.js"></script>
+</body></html>

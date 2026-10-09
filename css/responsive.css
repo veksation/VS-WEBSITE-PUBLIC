@@ -1,0 +1,145 @@
+/* Shared sizing rules, loaded after each page's component styles. */
+.site-header::after, .site-footer::before { left: 0; right: 0; }
+main { overflow-x: clip; }
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(.5rem, 1vw, 1rem);
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(.75rem, 2vw, 1.5rem);
+}
+.header-left, .header-right {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .6rem;
+  min-width: 0;
+  height: 100%;
+}
+.studio-name { font-size: clamp(1rem, 1.1vw, 1.1rem); white-space: nowrap; max-width: none; }
+.brand, .header-shell { width: clamp(80px, 7vw, 96px); height: 72px; flex: 0 0 auto; }
+.brand img, .header-shell { object-fit: cover; }
+.site-nav { position: static; flex: 0 0 auto; justify-content: flex-start; min-width: 0; }
+.site-nav ul { gap: clamp(.15rem, .5vw, .5rem); }
+.nav-link { font-size: clamp(1rem, 1.15vw, 1.1rem); padding-inline: clamp(.35rem, .6vw, .7rem); white-space: nowrap; }
+.header-right .nav-cta { font-size: clamp(.85rem, 1vw, 1.05rem); padding-inline: .75rem; }
+.nav-toggle { flex: 0 0 44px; width: 44px; height: 44px; margin: 0; }
+
+/* Grid contents can shrink without pushing their neighbours out of the panel. */
+:is(.info-intro, .features, .support, .cta-panel, .overworld-lead,
+    .karma-grid, .people-grid, .portrait-roster, .enemy-roster,
+    .style-comparison__pair, .jukebox, .character-dialog__profile) > * { min-width: 0; }
+.features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.character-roster { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.2rem, 3vw, 2rem); }
+.character-roster--main { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 761px) {
+  .character-roster:not(.character-roster--main) > :last-child:nth-child(3n + 1) { grid-column: 2; }
+}
+.character-card { width: 100%; }
+.character-card__sprite { max-width: 100%; }
+.character-card__name { font-size: clamp(1.8rem, 3vw, 2.6rem); overflow-wrap: anywhere; }
+.party-card__role { overflow-wrap: anywhere; }
+.email-link { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.contact-form :is(input, select, textarea) { min-width: 0; max-width: 100%; }
+.demo__controls, .demo__buttons { flex-wrap: wrap; }
+.demo__buttons { justify-content: flex-end; }
+.jukebox progress { min-width: 0; }
+.jukebox__track { max-width: 100%; overflow-wrap: anywhere; }
+.site-footer nav { width: 100%; }
+.site-footer nav a { max-width: 100%; overflow-wrap: anywhere; }
+.snapshot figcaption { padding-inline: .5rem; font-size: clamp(.9rem, 2vw, 1.35rem); }
+.character-dialog__sheet { overscroll-behavior: contain; }
+.character-dialog__close { max-width: calc(100% - 2rem); }
+
+@media (max-width: 1280px) {
+  :root { --header-h: 70px; }
+  .site-header__inner { gap: .5rem; }
+  .header-left, .header-right { flex: 1 1 0; gap: .4rem; }
+  .header-right { justify-content: flex-end; }
+  .brand, .header-shell { width: clamp(52px, 8vw, 85px); height: auto; aspect-ratio: 1.4; }
+  .studio-name { font-size: clamp(.85rem, 1.8vw, 1.1rem); }
+  .header-right .nav-cta { font-size: .85rem; padding-inline: .5rem; }
+  .nav-toggle { display: block; }
+  .site-nav {
+    position: absolute;
+    inset: calc(100% + 6px) .75rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .8rem;
+    max-height: calc(100dvh - var(--header-h) - 24px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 1rem;
+    background: var(--ink);
+    border: 4px solid var(--ink);
+    border-radius: var(--wobble-sm);
+    box-shadow: 8px 8px #0a0c1c80;
+    visibility: hidden;
+    opacity: 0;
+    translate: 0 -10px;
+    transition: opacity .2s, translate .2s, visibility .2s;
+  }
+  .nav-open .site-nav { visibility: visible; opacity: 1; translate: 0 0; }
+  .site-nav ul { flex-direction: column; align-items: stretch; gap: .25rem; }
+  .nav-link { display: block; width: fit-content; font-size: 1.2rem; padding: .45rem .7rem; }
+}
+@media (min-width: 1281px) {
+  .nav-toggle { display: none; }
+  .site-nav { visibility: visible; opacity: 1; translate: none; }
+}
+@media (max-width: 900px) {
+  .home-overview .info-intro { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .home-story, .home-teasers { width: 100%; max-width: 620px; justify-self: center; }
+  .support, .cta-panel, .overworld-lead, .combat-intro { grid-template-columns: minmax(0, 1fr); }
+  .cta-panel--reverse .cta-panel__art { order: 0; }
+  .portrait-roster { grid-template-columns: minmax(0, 1fr); max-width: 440px; margin-inline: auto; }
+}
+@media (max-width: 760px) {
+  .character-roster { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 620px; }
+  .character-card { padding: 1.5rem 1rem; }
+  .character-card__sprite { height: 180px; }
+  .character-roster > :last-child:nth-child(odd) { grid-column: 1 / -1; width: calc((100% - 1.2rem) / 2); justify-self: center; }
+}
+@media (max-width: 600px) {
+  .section { padding-inline: 1.1rem; }
+  .panel { padding: 1.4rem 1.2rem; }
+  .home-story, .home-teasers { padding: 1.3rem; }
+  .demo { padding: 10px; }
+  .demo__text { font-size: clamp(.7rem, 4cqi, 2rem); line-height: 1.35; letter-spacing: 0; }
+  .demo__controls { gap: .7rem; }
+  .features { grid-template-columns: minmax(0, 1fr); }
+  #composer-roster { grid-template-columns: minmax(0, 1fr); max-width: 340px; margin-inline: auto; }
+  .header-left { flex: 1 1 auto; }
+  .header-right { flex: 0 0 auto; }
+  .studio-name { white-space: normal; width: 64px; font-size: .85rem; line-height: 1.1; }
+  .brand, .header-shell { width: 48px; height: 36px; }
+  .header-right .nav-cta { font-size: .75rem; padding-inline: .4rem; }
+  .character-roster, .character-roster--main { grid-template-columns: minmax(0, 1fr); max-width: 360px; }
+  .character-roster > :last-child:nth-child(odd) { grid-column: auto; width: 100%; }
+  .character-card__sprite { height: 210px; }
+  .character-dialog__profile { grid-template-columns: minmax(0, 1fr); padding: 4rem 1.2rem 1.3rem; }
+  .character-dialog__body { padding: 1rem 0 0; }
+  .style-comparison__pair { gap: .5rem; }
+  .style-comparison figcaption { overflow-wrap: anywhere; }
+  .bbi-shadow h2 { overflow-wrap: anywhere; }
+  .coop-copy { padding: 1.5rem 1.2rem; }
+  .cta-panel__art--sprites { gap: .5rem; }
+  .sprite--cta { width: min(40%, 128px); height: auto; aspect-ratio: 1; }
+}
+@media (max-width: 380px) {
+  .site-header__inner { gap: .25rem; padding-inline: .4rem; }
+  .header-left, .header-right { gap: .2rem; }
+  .studio-name { width: 52px; font-size: .72rem; }
+  .brand, .header-shell { width: 42px; height: 32px; }
+  .nav-toggle { flex-basis: 40px; width: 40px; }
+  .header-right .nav-cta { font-size: .68rem; padding-inline: .25rem; gap: .25rem; letter-spacing: 0; }
+  .scribble-title { font-size: 2.1rem; }
+  .jukebox { padding: 1.4rem 1rem; }
+  .jukebox__turntable { padding: 1rem; }
+  .jukebox__sticker { font-size: .9rem; padding: .5rem; }
+}

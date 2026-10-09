@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <pattern id="pixels" width="8" height="8" patternUnits="userSpaceOnUse">
+    <path d="M0 0h2v2H0zM4 4h2v2H4z" fill="#0a0c1c" opacity=".14"/>
+    <path d="M4 0h1v1H4zM0 4h1v1H0z" fill="#f9e9a3" opacity=".06"/>
+  </pattern>
+  <path fill="url(#pixels)" d="M0 0h64v64H0z"/>
+  <path d="M-4 20 20-4M0 24 24 0M40 68 68 40M44 68 68 44" fill="none" stroke="#0a0c1c" stroke-width="1.5" opacity=".055"/>
+</svg>

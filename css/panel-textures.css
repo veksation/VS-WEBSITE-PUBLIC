@@ -1,0 +1,18 @@
+/* Opaque showcase panels need their own pixels: the translucent, hatched
+   story/features/support panels already show the original background texture. */
+:is(.character-card, .region-card, .enemy-card, .style-comparison,
+    .person-card, .portrait-card, .social-card, .composer-card,
+    .bbi-shadow, .jukebox, .home-teasers).sketch::before {
+  background: url("../assets/panel-dither.svg") repeat,
+    var(--panel-bg, var(--character-color, var(--vex)));
+}
+.character-dialog__profile {
+  background: url("../assets/panel-dither.svg") repeat, var(--panel-bg);
+}
+.jukebox__turntable {
+  background: url("../assets/panel-dither.svg") repeat, #deae52;
+}
+.dialogue__box {
+  background: url("../assets/panel-dither.svg") repeat,
+    linear-gradient(180deg, #3a5ad0, #2b46aa);
+}

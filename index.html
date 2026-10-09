@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vex &amp; Shell — A Turn-Based RPG</title>
+  <meta name="description" content="Vex & Shell: a retro-inspired, turn-based RPG with a riveting story and original art style. Watch the teasers, wishlist on Steam and follow the Kickstarter." />
+  <meta name="theme-color" content="#3F3F73" />
+  <link rel="icon" type="image/webp" href="assets/Sprites/websiteTabLogo.webp" />
+  <link rel="apple-touch-icon" href="assets/Sprites/websiteTabLogo.webp" />
+
+  <link rel="preload" href="assets/Fonts/Scrambled_Eggs.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="assets/Fonts/Scrambled_Eggs_Bold.ttf" as="font" type="font/ttf" crossorigin />
+
+  <link rel="preload" href="assets/Sprites/greg_neutral.webp" as="image" />
+  <link rel="preload" href="assets/Sprites/techDemoDialoguePanel.png" as="image" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/showcase.css" />
+  <link rel="stylesheet" href="css/encounters.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <noscript><style>.loader { display: none; } html.is-loading { overflow: auto; }</style></noscript>
+<link rel="stylesheet" href="css/refinements.css" />
+<link rel="stylesheet" href="css/explore-ring.css?v=radial-submenus" /><link rel="stylesheet" href="css/panel-textures.css" /><link rel="stylesheet" href="css/responsive.css" /></head>
+<body data-boil="0">
+
+  <!-- Hand-drawn "boiling line" filters: three noise seeds cycled by JS -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="marker-ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018 0.45" numOctaves="2" seed="8" result="grain" />
+        <feColorMatrix in="grain" type="matrix" values=".12 0 0 0 0  .12 0 0 0 0  .12 0 0 0 0  0 0 0 0 1" />
+        <feComposite in2="SourceAlpha" operator="in" result="strokes" />
+        <feBlend in="SourceGraphic" in2="strokes" mode="screen" result="ink" />
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2" result="edge" />
+        <feDisplacementMap in="ink" in2="edge" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-0" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-1" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-2" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <canvas id="sketch-bg" aria-hidden="true"></canvas>
+  <div class="dither" aria-hidden="true"></div>
+
+<a class="skip-link" href="#home">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top"><noscript><a href="index.html">Sandy Studio · Home</a></noscript></header>
+
+  <main id="main-content"><section class="section home-overview" id="home" aria-labelledby="info-title">
+      <header class="section__head reveal">
+        <h1 id="info-title" class="scribble-title">What is Vex &amp; Shell?</h1>
+      </header>
+
+      <div class="info-intro">
+        <div class="panel sketch reveal home-story">
+          <h3>The story</h3>
+          <p>
+            Vex &amp; Shell: a retro-inspired, turn-based RPG with a riveting story and original art style.
+          </p>
+          <p>
+            In the world of Vex &amp; Shell, the BBI reigns terror.
+            William Business, the perfectionist leader and founder of the BBI,
+            has taken great lengths to create a perfect world.
+          </p>
+          <p>
+            Play as Vex, the pacifist, and
+            Shell, the pessimist, as you set out to stop him.
+          </p>
+        </div>
+        <aside class="home-teasers panel sketch reveal" aria-labelledby="teasers-title"><h2 id="teasers-title">Watch the teasers</h2><div class="player" id="teaser-player" aria-roledescription="carousel" aria-label="Vex &amp; Shell teasers">
+          <div class="player__screen">
+            <div class="player__slides" id="teaser-slides"><!-- built by carousel.js --></div>
+            <button class="player__arrow player__arrow--prev" id="teaser-prev" aria-label="Previous teaser">
+              <svg viewBox="0 0 12 14" aria-hidden="true" shape-rendering="crispEdges"><path d="M8 0h2v2H8zM6 2h2v2H6zM4 4h2v2H4zM2 6h2v2H2zM4 8h2v2H4zM6 10h2v2H6zM8 12h2v2H8z"/></svg>
+            </button>
+            <button class="player__arrow player__arrow--next" id="teaser-next" aria-label="Next teaser">
+              <svg viewBox="0 0 12 14" aria-hidden="true" shape-rendering="crispEdges"><path d="M2 0h2v2H2zM4 2h2v2H4zM6 4h2v2H6zM8 6h2v2H8zM6 8h2v2H6zM4 10h2v2H4zM2 12h2v2H2z"/></svg>
+            </button>
+          </div>
+
+          <div class="dialogue">
+            <div class="dialogue__box">
+              <span class="dialogue__name" id="teaser-count">Teaser 1 / 4</span>
+              <p class="dialogue__text" id="teaser-title" aria-hidden="true">&nbsp;</p>
+              <p class="sr-only" id="teaser-live" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="order" role="tablist" aria-label="Choose a teaser">
+            <span class="order__label">Order</span>
+            <div class="order__list" id="teaser-order"><!-- built by carousel.js --></div>
+          </div>
+        </div><p class="video-fallback"><a id="teaser-youtube" href="https://www.youtube.com/watch?v=GYjjjVIa-V0" target="_blank" rel="noopener">Watch on YouTube ↗</a></p></aside>
+      </div>
+
+
+      <h3 class="subhead">Features</h3>
+      <ul class="features">
+        <li class="feature sketch">
+          <h4>Turn-Based Combat</h4>
+          <p>A riveting combat system that combines the best of classic turn-based battles with bullet-hell combat and unique per-fight gimmicks.</p>
+        </li>
+        <li class="feature sketch">
+          <h4>Immersive Dialogue</h4>
+          <p>Animated conversations with dynamic blinking and talking portrait effects as well as human-voiced dialogue sound effects.</p>
+        </li>
+        <li class="feature sketch">
+          <h4>Imperfect Artstyle</h4>
+          <p>An asymmetrical, hand-drawn art style that aims for imperfection, because the world is an imperfect place.</p>
+        </li>
+        <li class="feature sketch">
+          <h4>Graphical Shifts</h4>
+          <p>Several unique art style shifts throughout the game, some you already know, others you'll just have wait and see.</p>
+        </li>
+      </ul>
+
+<section class="home-explore" id="info" aria-labelledby="explore-title"><h2 class="subhead" id="explore-title">Explore Vex &amp; Shell</h2>
+<div class="action-ring" id="explore-ring"><canvas class="action-ring__art" id="explore-ring-art" width="128" height="128" aria-hidden="true"></canvas>
+<div class="action-ring__categories" id="ring-categories" role="group" aria-label="Explore the game">
+<button class="action-ring__choice action-ring__choice--world" type="button" data-explore-group="world" aria-controls="explore-world" aria-expanded="false"><span>World</span></button>
+<button class="action-ring__choice action-ring__choice--mechanics" type="button" data-explore-group="mechanics" aria-controls="explore-mechanics" aria-expanded="false"><span>Mechanics</span></button>
+<button class="action-ring__choice action-ring__choice--characters" type="button" data-explore-group="characters" aria-controls="explore-characters" aria-expanded="false"><span>Characters</span></button>
+<button class="action-ring__choice action-ring__choice--music" type="button" data-explore-group="music" aria-controls="explore-music" aria-expanded="false"><span>Music</span></button>
+</div>
+<section class="action-ring__submenu" id="explore-world" aria-labelledby="explore-world-title" hidden><h3 id="explore-world-title">World</h3>
+
+<a class="action-ring__link" href="art-style.html">Art style shifts</a>
+<button class="action-ring__back" type="button">Back</button></section>
+<section class="action-ring__submenu" id="explore-mechanics" aria-labelledby="explore-mechanics-title" hidden><h3 id="explore-mechanics-title">Mechanics</h3>
+<a class="action-ring__link" href="combat.html" aria-label="Combat & enemies">Combat</a>
+<a class="action-ring__link" href="dialogue.html" aria-label="Dialogue & voices">Dialogue</a>
+<a class="action-ring__link" href="about.html">Karma</a>
+<a class="action-ring__link" href="coop.html">Co-op</a>
+<button class="action-ring__back" type="button">Back</button></section>
+<section class="action-ring__submenu" id="explore-characters" aria-labelledby="explore-characters-title" hidden><h3 id="explore-characters-title">Characters</h3>
+<a class="action-ring__link" href="characters.html">Characters</a>
+<a class="action-ring__link" href="bbi.html">Hatters</a>
+<button class="action-ring__back" type="button">Back</button></section>
+<section class="action-ring__submenu" id="explore-music" aria-labelledby="explore-music-title" hidden><h3 id="explore-music-title">Music</h3>
+<a class="action-ring__link" href="music.html">Composers</a>
+<a class="action-ring__link" href="jukebox.html">Jukebox</a>
+<button class="action-ring__back" type="button">Back</button></section>
+</div><p class="action-ring__hint">Choose a section to explore.</p><noscript><nav class="ring-fallback" aria-label="Explore the game">
+
+<a href="about.html">Karma</a>
+<a href="art-style.html">Art style shifts</a>
+<a href="coop.html">Co-op</a>
+<a href="combat.html">Combat</a>
+<a href="dialogue.html">Dialogue</a>
+<a href="characters.html">Characters</a>
+<a href="bbi.html">Hatters</a>
+<a href="music.html">Composers</a>
+<a href="jukebox.html">Jukebox</a>
+</nav></noscript></section></section></main>
+
+  <footer class="site-footer"><noscript>Sandy Studio LLC</noscript></footer>
+
+  <script src="js/config.js"></script>
+<script src="js/showcase-content.js"></script>
+<script src="js/site-chrome.js?v=contact"></script>
+<script src="js/background.js"></script>
+<script src="js/main.js?v=hatters-ring"></script>
+<script src="js/portrait-animation.js"></script>
+<script src="js/header-portraits.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/explore-ring.js"></script>
+
+</body>
+</html>

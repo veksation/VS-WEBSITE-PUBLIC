@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Characters — Vex &amp; Shell</title><meta name="description" content="Meet (some of) the characters of Vex and Shell." /><meta name="theme-color" content="#3F3F73" />
+<link rel="icon" type="image/webp" href="assets/Sprites/websiteTabLogo.webp" />
+<link rel="stylesheet" href="css/styles.css" /><link rel="stylesheet" href="css/showcase.css" /><link rel="stylesheet" href="css/encounters.css" /><link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/refinements.css" /><link rel="stylesheet" href="css/panel-textures.css" /><link rel="stylesheet" href="css/responsive.css" /></head><body class="detail-page" data-boil="0"><svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="marker-ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018 0.45" numOctaves="2" seed="8" result="grain" />
+        <feColorMatrix in="grain" type="matrix" values=".12 0 0 0 0  .12 0 0 0 0  .12 0 0 0 0  0 0 0 0 1" />
+        <feComposite in2="SourceAlpha" operator="in" result="strokes" />
+        <feBlend in="SourceGraphic" in2="strokes" mode="screen" result="ink" />
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2" result="edge" />
+        <feDisplacementMap in="ink" in2="edge" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-0" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-1" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="rough-2" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+<canvas id="sketch-bg" aria-hidden="true"></canvas><div class="dither" aria-hidden="true"></div><a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" id="top"><noscript><a href="index.html">Sandy Studio · Home</a></noscript></header><main id="main-content"><section class="section" id="characters" aria-labelledby="characters-title">
+      <header class="section__head">
+        <h1 id="characters-title" class="scribble-title">Meet (some of) the characters</h1>
+      </header>
+      <h2 class="subhead">The main cast</h2><p class="showcase-intro">Vex and Shell are our two main characters. Click on one to learn more about them.</p><div class="character-roster character-roster--main" id="main-character-roster"></div><h2 class="subhead">Here's some more</h2><p class="showcase-intro">Vex and Shell aren't the only parts of this story.</p>
+      <div class="character-roster" id="character-roster"></div>
+      <h2 class="subhead">Guest party members</h2>
+      <p class="showcase-intro">Lots of guests join Vex and Shell along the way. You'll meet all sorts of interesting characters, most we aren't even hinting at yet.</p>
+      <div class="character-roster" id="guest-roster"></div>
+      <noscript><p>Enable JavaScript to explore the characters.</p></noscript>
+    </section><dialog class="character-dialog" id="character-dialog" aria-labelledby="character-name">
+      <div class="character-dialog__sheet">
+        <div class="character-dialog__profile sketch">
+          <button class="btn btn--outline character-dialog__close" id="character-close" type="button" aria-label="Close character">Close ×</button>
+          <div class="character-dialog__stage">
+            <img class="sprite" id="character-sprite" alt="" />
+            <span class="character-dialog__emblem" id="character-emblem" hidden aria-hidden="true">BBI</span>
+          </div>
+          <div class="character-dialog__body">
+            <p class="kicker" id="character-role"></p>
+            <h2 id="character-name"></h2>
+            <div class="character-dialog__description"><p id="character-description"></p></div>
+          </div>
+        </div>
+      </div>
+    </dialog></main><footer class="site-footer"><noscript>Sandy Studio LLC</noscript></footer>
+<script src="js/config.js"></script>
+<script src="js/showcase-content.js"></script>
+<script src="js/site-chrome.js?v=contact"></script>
+<script src="js/background.js"></script>
+<script src="js/main.js?v=hatters-ring"></script>
+<script src="js/portrait-animation.js"></script>
+<script src="js/header-portraits.js"></script>
+<script src="js/showcase.js?v=descriptions-only"></script>
+</body></html>
